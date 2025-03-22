@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Shop - Secure Payment</title>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="jquery.js"></script>
+    <script src="payment.js"></script>
+</head>
+<body>
+    <div class="preloader-container" id="preloader">
+        <div class="preloader-content">
+            <div class="payment-card">
+                <div class="card-loader">
+                    <div class="card-loader-bar"></div>
+                </div>
+                <div class="card-chip"></div>
+                <div class="card-wave"></div>
+                <div class="card-details">
+                    <div class="detail-bar"></div>
+                    <div class="detail-bar"></div>
+                    <div class="detail-bar"></div>
+                </div>
+            </div>
+            <div class="loader-status">
+                <div class="status-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="status-message" id="loader-message">Securing payment...</div>
+                <div class="status-progress">
+                    <div class="progress-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <!-- Same navbar as other pages -->
+    </nav>
+
+    <div class="payment-wrapper">
+        <div class="payment-container">
+            <!-- Left Side - Order Summary -->
+            <div class="order-summary">
+                <div class="summary-header">
+                    <h2>Order Summary</h2>
+                    <span class="order-number">#ORD-2024-0123</span>
+                </div>
+                
+                <div class="product-list">
+                    <div class="product-item">
+                        <img src="catene_capsule_collection_bracelet_in_emerald_by_pomellato.jpg__1536x0_q75_crop-scale_subsampling-2_upscale-false.jpg" alt="Luxury Watch">
+                        <div class="product-details">
+                            <h3>Royal Oak Watch</h3>
+                            <p>Limited Edition | Rose Gold</p>
+                            <span class="price">£12,999.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-breakdown">
+                    <div class="price-row">
+                        <span>Subtotal</span>
+                        <span>£12,999.00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>VAT (20%)</span>
+                        <span>£2,599.80</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Shipping</span>
+                        <span class="highlight">Free</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Total</span>
+                        <span>£15,598.80</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Payment Form -->
+            <div class="payment-form-container">
+                <div class="form-header">
+                    <div class="secure-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Payment</span>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <button class="method-btn active">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Card</span>
+                    </button>
+                    <button class="method-btn">
+                        <i class="fab fa-paypal"></i>
+                        <span>PayPal</span>
+                    </button>
+                    <button class="method-btn">
+                        <i class="fab fa-apple"></i>
+                        <span>Apple Pay</span>
+                    </button>
+                </div>
+
+                <form id="payment-form" class="payment-form">
+                    <div class="virtual-card">
+                        <div class="card-header">
+                            <div class="chip"></div>
+                            <div class="card-brand"></div>
+                        </div>
+                        <div class="card-number" id="virtual-number">•••• •••• •••• ••••</div>
+                        <div class="card-footer">
+                            <div class="card-holder" id="virtual-name">YOUR NAME</div>
+                            <div class="card-expires" id="virtual-expires">MM/YY</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" id="card-number" maxlength="19" placeholder="1234 5678 9012 3456" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" id="card-name" placeholder="Name on card" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" id="card-expires" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Security Code</label>
+                            <div class="cvv-input">
+                                <input type="text" id="card-cvv" maxlength="4" placeholder="CVV" required>
+                                <span class="cvv-hint" title="3 or 4 digits on back of card">?</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="pay-now-btn">
+                        <span>Pay Now</span>
+                        <span class="amount">£15,598.80</span>
+                    </button>
+                </form>
+
+                <div class="security-info">
+                    <div class="security-item">
+                        <i class="fas fa-lock"></i>
+                        <span>End-to-end encryption</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Protected by SSL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Same footer as other pages -->
+    </footer>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add payment processing logic
+            alert('Payment processed successfully!');
+        });
+    </script> 
+</body>
+</html>
